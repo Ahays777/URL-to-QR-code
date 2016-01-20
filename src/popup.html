@@ -17,7 +17,7 @@
         white-space: pre;
         text-overflow: ellipsis;
         overflow: hidden;
-        max-width: 400px;
+        max-width: 500px;
       }
     </style>
 
@@ -33,8 +33,12 @@
     <script src="popup.js"></script>
   </head>
   <body>
+    <textarea rows="4" cols="40" id="textInput" value="" placeholder="Input text to convert to QR code" autofocus></textarea>
+    <button type="button" id="convert">Convert</button>
     <div id="status"></div>
+    <div id="imageContainer">
     <div id="QR-image"></div>
+    </div>
     <a id="qrdataURL" target="_blank" download="QR-image.png">Save as Image</a>
   </body>
 </html>

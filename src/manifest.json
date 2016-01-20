@@ -3,8 +3,8 @@
 
   "name": "URL to QR code converter",
   "short_name": "URL to QR",
-  "description": "This extension shows the QR code for the url of the current page.  You also have the option to save the QR code as a png file.",
-  "version": "0.2",
+  "description": "This extension shows the QR code for the url of the current page or the text you input.  You can save the QR code as a png file.",
+  "version": "0.3",
 
   "browser_action": {
     "default_icon": "icon.png",

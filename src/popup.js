@@ -54,7 +54,7 @@ function renderStatus(statusText) {
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
     console.assert(typeof url == 'string', 'The url is not a string!');
-    renderStatus('Scan this QR code to share.');
+    renderStatus('Scan to share this page.');
     jQuery('#QR-image').qrcode({
         render: "canvas",
         width:  256,
@@ -67,4 +67,29 @@ document.addEventListener('DOMContentLoaded', function() {
     var qrdataurl = qrimage.children[0].toDataURL("image/png");
     document.getElementById("qrdataURL").setAttribute("href", qrdataurl);
   });
+
+  var button = document.getElementById('convert');
+  button.addEventListener('click', convText);
 });
+
+
+function convText() {
+    text = document.getElementById("textInput").value;
+    //console.log(text);
+    renderStatus('Scan to share the text.');
+    var qrimage = document.getElementById('QR-image');
+    qrimage.parentNode.removeChild(qrimage);
+    qrimage = document.createElement('div');
+    qrimage.id = "QR-image";
+    document.getElementById("imageContainer").appendChild(qrimage);
+    jQuery('#QR-image').qrcode({
+        render: "canvas",
+        width:  256,
+        height: 256,
+        text:   text
+        //text:   "fjdu"
+    });
+    //console.log(qrimage.children[0]);
+    var qrdataurl = qrimage.children[0].toDataURL("image/png");
+    document.getElementById("qrdataURL").setAttribute("href", qrdataurl);
+}
