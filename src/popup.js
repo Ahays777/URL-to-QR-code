@@ -84,9 +84,10 @@ function convText() {
     document.getElementById("imageContainer").appendChild(qrimage);
     jQuery('#QR-image').qrcode({
         render: "canvas",
-        width:  256,
-        height: 256,
-        text:   text
+        width:  512,
+        height: 512,
+        text:   unescape(encodeURIComponent(text))
+        //http://stackoverflow.com/questions/5396560/how-do-i-convert-special-utf-8-chars-to-their-iso-8859-1-equivalent-using-javasc
         //text:   "fjdu"
     });
     //console.log(qrimage.children[0]);
